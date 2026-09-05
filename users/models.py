@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class User(AbstractUser):
     avatar = models.CharField(max_length = 255 , null = True , blank = True)
@@ -29,7 +30,7 @@ class StudentProfile(models.Model):
     student_number = models.CharField(max_length = 20 , unique = True)
     major = models.CharField(max_length = 100)
     degree = models.CharField(max_length = 20)
-    entry_year = models.IntegerField()
+    entry_year = models.IntegerField(validators=[MinValueValidator(1390), MaxValueValidator(1420)])
 
     def __str__(self):
         return self.student_number
