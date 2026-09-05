@@ -35,7 +35,7 @@ class StudentProfile(models.Model):
         return self.student_number
 
 class TeacherProfile(models.Model):
-    university_member = models.OneToOneField(UniversityMember , unique = True , on_delete = models.CASCADE)
+    university_member = models.OneToOneField(UniversityMember , on_delete = models.CASCADE)
     employee_number = models.CharField(max_length = 20 , unique = True)
     academic_rank = models.CharField(max_length = 30 , null = True , blank = True)
     office = models.CharField(max_length = 20 , null = True , blank =  True)
