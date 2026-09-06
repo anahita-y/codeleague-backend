@@ -26,7 +26,7 @@ class UniversityMemberViewSet(viewsets.ModelViewSet):
         serializer.save(user = self.request.user)
 
 
-class StudentViewSet(viewsets.ModelViewSet):
+class StudentProfileViewSet(viewsets.ModelViewSet):
     queryset = StudentProfile.objects.all()
     serializer_class = StudentProfileSerializer
     permission_classes = [permissions.IsAuthenticated]
